@@ -1,0 +1,1120 @@
+@import "mixins";
+@import "vars";
+
+@font-face{ 
+  font-family: 'Architects Daughter';
+  src: url('../../fonts/ArchitectsDaughter.ttf');
+}
+
+/*  ----------------------------
+
+		LANDING PAGE
+
+----------------------------  */
+
+#masthead{
+	width: 100%;
+	background-color: $blue;
+	background-image: url('../../images/stripe.png');
+}
+
+	#masthead-background{
+		width: 100%;
+		height: 100%;
+		background-image: url('../../images/landing-intro.png');
+		background-position: right bottom;
+		background-size: auto 70%;
+		background-repeat: no-repeat;
+	}
+
+	$masthead-map-height: 600px;
+
+	#masthead-map{
+		width: 100%;
+		height: $masthead-map-height;
+		background-image: url('../../images/shoremap.png');
+		background-size: auto 100%;
+		background-repeat: no-repeat;
+		background-position: left top;
+	}
+
+		#masthead-map-overlay{
+			width: 100%;
+			height: 100%;
+			position: relative; 
+		}
+
+			.subpage-footer{
+				margin-bottom: 100px;
+			}
+
+		#masthead-map-left{
+			width: 50%;
+			height: 100%;
+			position: relative;
+			float: left;
+
+			.masthead-miniheadline{
+				display: none;
+				width: 50%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				padding-left: 5%;
+				font-size: 2.75rem;
+				color: $white;
+				@include texthaze($black);
+				font-weight: bolder;
+
+				span{
+					display: inline-block;
+					margin-top: 200px;
+					background-color: rgba($darkblue, 0.25);
+					padding: 50px 25px;
+					@include rounded(25px);
+				}
+			}
+
+			$label-height: 25px;
+
+			.mapmarker{
+				position: absolute;
+				color: $white;
+
+				i{
+					background-color: rgba($orange, .75);
+					border-radius: 50%;
+				}
+			}
+
+			.maplabel{
+				position: absolute;
+				left: 0;
+				color: $white;
+				display: inline;
+				@include texthaze($black);
+				text-align: right;
+				font-family: 'Architects Daughter', sans-serif;
+				font-size: 0.85em;
+
+				a{
+					text-decoration: none;
+
+					&:hover{
+						color: $orange;
+						@include fader(0.2s);
+					}
+				}
+			}
+
+			.marker-01{left: 400px;}
+			.marker-02{left: 375px;}
+			.marker-03{left: 300px;}
+			.marker-04{left: 175px;}
+			.marker-05{left: 175px;}
+			.marker-06{left: 275px;}
+			.marker-07{left: 165px;}
+			.marker-08{left: 165px;}
+			.marker-09{left: 140px;}
+			.marker-10{left: 140px;}
+			.marker-11{left:  95px;}
+			.marker-12{left:  65px;}
+
+			.label-01{width: 600px;}
+			.label-02{width: 600px;}
+			.label-03{width: 600px;}
+			.label-04{width: 500px;}
+			.label-05{width: 500px;}
+			.label-06{width: 550px;}
+			.label-07{width: 550px;}
+			.label-08{width: 500px;}
+			.label-09{width: 450px;}
+			.label-10{width: 400px;}
+
+			$label-base: 200px;
+			$label-step: 42px;
+
+			.marker-01,.label-01{top: $label-base;}
+			.marker-02,.label-02{top: $label-base + ($label-step)}
+			.marker-03,.label-03{top: $label-base + ($label-step * 2)}
+			.marker-04,.label-04{top: $label-base + ($label-step * 3)}
+			.marker-05,.label-05{top: $label-base + ($label-step * 4)}
+			.marker-06,.label-06{top: $label-base + ($label-step * 5)}
+			.marker-07,.label-07{top: $label-base + ($label-step * 6)}
+			.marker-08,.label-08{top: $label-base + ($label-step * 7)}
+			.marker-09,.label-09{top: $label-base + ($label-step * 8)}
+			.marker-10,.label-10{top: $label-base + ($label-step * 9)}
+
+				#masthead-mobileselect{
+					display: none;
+					background-color: rgba($darkblue, .35);
+					padding: 25px;
+					width: 90%;
+					position: absolute;
+					left: 5%;
+					top: 160px;
+					@include rounded(25px);
+
+					span{
+						display: inline-block;
+						font-size: 2.25rem;
+						font-weight: bolder;
+						@include texthaze($black);
+						color: $white;
+						margin-bottom: 50px;
+					}
+
+					.selekt {
+					    border: 1px solid $darkblue;
+					    width: 100%;
+					    border-radius: 5px;
+					    overflow: hidden;
+					    color: $blue;
+					    font-size: 1.2rem;
+					    text-align: center;
+					    font-weight: bolder;
+					    background: $white url("../../images/icon-select.png") no-repeat 98% 50%;
+					}
+					.selekt select {
+					    padding: 15px 8px 15px 45px;
+					    width: 130%;
+					    border: none;
+					    box-shadow: none;
+					    background: transparent;
+					    background-image: none;
+					    -webkit-appearance: none;
+					    background-image: url('../../images/selekt.png');
+					    background-size: 25px auto;
+					    background-repeat: no-repeat;
+					    background-position: 10px center;
+					    text-align: center;
+					}
+					.selekt select:focus {outline: none;}
+
+					.masthead-mobileselect-button{
+						width: 100%;
+						margin-top: 10px;
+						text-align: center;
+						padding: 15px 10px;
+						@include rounded;
+						background-color: orange;
+						@include vertical_gradient($orange);
+						font-weight: bold;
+						color: $white;
+						@include texthaze($darkblue);
+						text-transform: uppercase;
+						@include divshadow($darkblue);
+					}
+				}
+		}
+
+		.masthead-logo{
+			position: absolute;
+			left: 10%;
+			top: 25px;
+
+			img{
+				width: auto;
+				height: 85px;
+			}
+		}
+
+		#masthead-map-right{
+			width: 50%;
+			height: 100%;
+			position: relative;
+			float: left;
+		}
+
+			.masthead-headline{
+				width: 100%;
+				height: 100%;
+				padding: 0 10%;
+				display: table;
+				text-align: right;
+
+				h1{
+					font-size: 3em;
+					color: $white;
+					font-weight: bolder;
+					@include texthaze(darken($grey, 50%));
+					margin-top: 150px;
+				}
+			}
+
+			.masthead-headline-align{
+				width: 100%;
+				height: 100%;
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			.hero-language-flag{
+				width: 90px;
+				position: absolute;
+				right: 10%;
+				top: 0;
+				background-color: $orange;
+			}
+
+			.hero-language-flag-inner{
+				width: 100%;
+				height: 100%;
+				position: relative;
+				padding: 25px 0 10px 0;
+
+				.middle-cell{
+					margin: 5px 0;
+				}
+
+				img{
+					height: 15px;
+				}
+			}
+
+				.hero-language-tail-left{
+					position: absolute;
+					left: 0;
+					bottom: -15px;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 15px 45px 0 0;
+					border-color: $orange transparent transparent transparent;
+				}
+
+				.hero-language-tail-right{
+					position: absolute;
+					right: 0;
+					bottom: -15px;
+					width: 0;
+					height: 0;
+					border-style: solid;
+					border-width: 0 45px 15px 0;
+					border-color: transparent $orange transparent transparent;
+				}
+
+				.hero-language-cell{
+					width: 100%;
+					font-family: monospace;
+					text-transform: uppercase;
+					color: darken($orange, 15%);
+					text-align: center;
+
+					img{
+						margin-right: 10px;
+					}
+				}
+
+#undermast{
+	width: 90%;
+	padding: 100px 0;
+	margin-left: 5%;
+
+	div:nth-child(0){
+		margin-left: 0;
+	}
+}
+
+	.undermast-cell{
+		width: 32%;
+		height: 250px;
+		height: 40vh;
+		max-height: 350px;
+		float: left;
+		display: table;
+		margin-bottom: 2%;
+		@include rounded;
+		@include bgcover;
+		@include divshadow($black);
+		cursor: pointer;
+	}
+
+	.undermast-center{
+		margin: 0 2%;
+	}
+
+		.undermast-cell-overlay{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			display: table-cell;
+			vertical-align: middle;
+			background-color: rgba($black, .3);
+			@include rounded;
+			text-align: center;
+			color: $white;
+			font-weight: bold;
+			@include texthaze($black);
+
+			span{
+				font-size: 0.9rem;
+				display: inline-block;
+				margin: 5px 0;
+			}
+
+			&:hover{
+				background-color: transparent;
+				@include fader;
+			}
+		}
+
+		.undermast-novo-snipe{
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			background-color: $orange;
+			padding: 5px;
+			border: 1px solid darken($orange, 15%);
+			font-size: .9rem;
+			-webkit-border-top-left-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-topleft: 5px;
+			-moz-border-radius-bottomright: 5px;
+			border-top-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+			text-shadow: 0 0 0 transparent;
+		}
+
+		.undermast-cell-1{
+			background-image: url('../../images/undermast-cell-1.jpg');
+		}
+		.undermast-cell-2{
+			background-image: url('../../images/undermast-cell-2.jpg');
+		}
+		.undermast-cell-3{
+			background-image: url('../../images/undermast-cell-3.jpg');
+		}
+		.undermast-cell-4{
+			background-image: url('../../images/undermast-cell-4.jpg');
+		}
+		.undermast-cell-5{
+			background-image: url('../../images/undermast-cell-5.jpg');
+		}
+		.undermast-cell-6{
+			background-image: url('../../images/undermast-cell-6.jpg');
+		}
+
+#landing-options{
+	width: 100%;
+	padding: 100px 5%;
+	background-color: $softblue;
+	color: $darkblue;
+
+	span:first-of-type{
+		font-size: 2rem;
+		font-weight: bolder;
+		margin-bottom: 50px;
+	}
+}
+
+	.landing-options-items{
+		width: 100%;
+		@include flexit;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+
+		img{
+			height: 150px;
+		}
+	}
+
+	.landing-options-fields{
+		width: 100%;
+		margin: 50px 0;
+
+		.select-style {
+		    border: 1px solid $blue;
+		    width: 32%;
+		    float: left;
+		    border-radius: 5px;
+		    overflow: hidden;
+		    color: $blue;
+		    background: $white url("../../images/icon-select.png") no-repeat 98% 50%;
+		}
+		.select-style select {
+		    padding: 15px 8px 15px 45px;
+		    width: 130%;
+		    border: none;
+		    box-shadow: none;
+		    background: transparent;
+		    background-image: none;
+		    -webkit-appearance: none;
+		    background-image: url('../../images/select-style-1.png');
+		    background-size: 25px auto;
+		    background-repeat: no-repeat;
+		    background-position: 10px center;
+		}
+		.select-style select:focus {outline: none;}
+
+		.select-style-2 {
+		    border: 1px solid $blue;
+		    width: 32%;
+		    float: left;
+		    border-radius: 5px;
+		    overflow: hidden;
+		    /*color: $blue;*/
+		    background: $white url("../../images/icon-select.png") no-repeat 98% 50%;
+		}
+		.select-style-2 select {
+		    padding: 15px 8px 15px 45px;
+		    width: 130%;
+		    border: none;
+		    box-shadow: none;
+		    background: transparent;
+		    background-image: none;
+		    -webkit-appearance: none;
+		    background-image: url('../../images/select-style-2.png');
+		    background-size: 25px auto;
+		    background-repeat: no-repeat;
+		    background-position: 10px center;
+		}
+		.select-style-2 select:focus {outline: none;}
+
+		.select-style-3 {
+		    border: 1px solid $blue;
+		    width: 32%;
+		    float: left;
+		    border-radius: 5px;
+		    overflow: hidden;
+		    color: $blue;
+		    background: $white url("../../images/icon-select.png") no-repeat 98% 50%;
+		}
+		.select-style-3 select {
+		    padding: 15px 8px 15px 45px;
+		    width: 130%;
+		    border: none;
+		    box-shadow: none;
+		    background: transparent;
+		    background-image: none;
+		    -webkit-appearance: none;
+		    background-image: url('../../images/select-style-3.png');
+		    background-size: 25px auto;
+		    background-repeat: no-repeat;
+		    background-position: 10px center;
+		}
+		.select-style-3 select:focus {outline: none;}
+
+		.select-middle{
+			margin: 0 2%;
+		}
+	}
+
+	.landing-options-button{
+		width: 32%;
+		float: right;
+		padding: 15px;
+		text-align: center;
+		color: $white;
+		background-color: $orange;
+		@include vertical_gradient($orange);
+		@include divshadow($blue);
+		font-weight: bolder;
+		@include rounded(5px);
+		@include texthaze($orange);
+		cursor: pointer;
+		cursor: hand;
+
+		&:hover{
+			@include vertical_gradient(darken($orange, 5%));
+			@include fader;
+		}
+	}
+
+#landing-bigfeatures{
+	width: 100%;
+	padding-bottom: 100px;
+	background-color: $white;
+	@include flexit;
+	background-image: url('../../images/stripe.png');
+}
+
+	.landing-bigfeatures-left{
+		width: 50%;
+		min-height: 500px;
+		position: relative;
+		float: left;
+		@include bgcover;
+	}
+
+		.landing-bigfeatures-date{
+			width: 75px;
+			height: 75px;
+			display: table;
+			position: absolute;
+			left: 10%;
+			top: 25px;
+			border: 2px solid $orange;
+			color: $orange;
+			text-align: center;
+			border-radius: 50%;
+		}
+
+			.landing-bigfeatures-date-align{
+				width: 100%;
+				height: 100%;
+				display: table-cell;
+				vertical-align: middle;
+				font-size: 1.25rem;
+    		-webkit-transform: rotate(-20deg);
+    		transform: rotate(-20deg);
+			}
+
+		.landing-bigfeatures-left-1{
+			background-image: url('../../images/landing-bigfeatures-left-1.jpg');
+		}
+
+		.landing-bigfeatures-left-2{
+			background-image: url('../../images/landing-bigfeatures-left-2.jpg');
+		}
+
+		.landing-bigfeatures-left-3{
+			background-image: url('../../images/landing-bigfeatures-left-3.jpg');
+		}
+
+	.landing-bigfeatures-right{
+		width: 50%;
+		float: right;
+		position: relative;
+		padding: 100px 5% 100px 5%;
+
+		span{
+			display: inline-block;
+			font-size: 2rem;
+			font-weight: bolder;
+			margin-bottom: 25px;
+		}
+	}
+
+		.landing-bigfeatures-readmore{
+			position: absolute;
+			right: 10%;
+			bottom: 25px;
+			border: 2px solid $blue;
+			color: $blue;
+			font-weight: bolder;
+			@include divshadow;
+			padding: 10px 25px 10px 5%;
+			cursor: pointer;
+
+			&:hover{
+				background-color: $blue;
+				color: $white;
+				@include fader;
+			}
+		}
+
+/*  ----------------------------
+
+		SUBPAGES
+
+----------------------------  */
+
+#subpage-masthead{
+	width: 100%;
+	height: $masthead-map-height + 100px;
+	background-color: $blue;
+	background-size: cover;
+	@include divshadow($red);
+}
+
+	.subpage-masthead-lagoinha{
+		background-image: url('../../images/subpage-masthead-lagoinha.jpg');
+		background-position: right top;
+	}
+
+	.subpage-masthead-toninhas{
+		background-image: url('../../images/subpage-masthead-toninhas.jpg');
+		background-position: bottom right;
+	}
+
+	.subpage-masthead-felix{
+		background-image: url('../../images/subpage-masthead-felix.jpg');
+		background-position: right top;
+	}
+
+	.subpage-masthead-itagua{
+		background-image: url('../../images/subpage-masthead-itagua.jpg');
+		background-position: right;
+	}
+
+	.subpage-masthead-maranduba{
+		background-image: url('../../images/subpage-masthead-maranduba.jpg');
+		background-position: bottom;
+	}
+
+	.subpage-masthead-acu{
+		background-image: url('../../images/subpage-masthead-acu.jpg');
+		background-position: bottom;
+	}
+
+	.subpage-masthead-mirim{
+		background-image: url('../../images/subpage-masthead-mirim.jpg');
+		background-position: bottom;
+	}
+
+	.subpage-masthead-grande{
+		background-image: url('../../images/subpage-masthead-grande.jpg');
+		background-position: right top;
+	}
+
+	.subpage-masthead-itambuca{
+		background-image: url('../../images/subpage-masthead-itamambuca.jpg');
+		background-position: center;
+	}
+
+	.subpage-masthead-vermelha{
+		background-image: url('../../images/subpage-masthead-vermelha.jpg');
+		background-position: right;
+	}
+
+	#subpage-masthead-overlay{
+		width: 100%;
+		height: 100%;
+		background-image: url('../../images/shoremap.png');
+		background-size: auto calc(100% - 100px);
+		background-repeat: no-repeat;
+		background-position: left top;
+		background-color: rgba($blue, .75);
+		@include divshadow($grey);
+	}
+	
+	#subpage-masthead-left,
+	#subpage-masthead-right{
+		width: 50%;
+		height: 100%;
+		float: left;
+		position: relative;
+	}
+
+		@-webkit-keyframes backandforth{
+			0%{-webkit-transform: translate(0px);transform: translate(0px);}
+			50%{-webkit-transform: translate(4px);transform: translate(4px);}
+			100%{-webkit-transform: translate(0px);transform: translate(0px);}
+		}
+
+		@keyframes backandforth{
+			0%{-webkit-transform: translate(0px);transform: translate(0px);}
+			50%{-webkit-transform: translate(4px);transform: translate(4px);}
+			100%{-webkit-transform: translate(0px);transform: translate(0px);}
+		}
+
+		.subpage-bullseye{
+			width: 75px;
+			height: 75px;
+			position: relative;
+			background-image: url('../../images/subpage-bullseye.png');
+			background-size: contain;
+			background-repeat: no-repeat;
+	    -webkit-animation-timing-function: ease-in-out;
+	    animation-timing-function: ease-in-out;
+	    -webkit-animation: backandforth .75s;
+	    -webkit-animation-iteration-count:infinite;
+	    animation: backandforth .75s;
+	    animation-iteration-count:infinite;
+		}
+
+			.subpage-bullseye-lagoinha{
+				left: 140px;
+				top: 555px;
+			}
+
+			.subpage-bullseye-toninhas{
+				left: 165px;
+				top: 442px;
+			}
+
+			.subpage-bullseye-felix{
+				left: 415px;
+				top: 175px;
+			}
+
+			.subpage-bullseye-itagua{
+				left: 190px;
+				top: 300px;
+			}
+
+			.subpage-bullseye-maranduba{
+				left: 152px;
+				top: 512px;
+			}
+
+			.subpage-bullseye-acu{
+				left: 298px;
+				top: 265px;
+			}
+
+			.subpage-bullseye-mirim{
+				left: 172px;
+				top: 480px;
+			}
+
+			.subpage-bullseye-grande{
+				left: 286px;
+				top: 385px;
+			}
+
+			.subpage-bullseye-itambuca{
+				left: 380px;
+				top: 220px;
+			}
+
+			.subpage-bullseye-vermelha{
+				left: 175px;
+				top: 350px;
+			}
+
+		#subpage-masthead-headline{
+			width: 50%;
+			height: 100%;
+			height: $masthead-map-height + 100px;
+			position: absolute;
+			left: 25%;
+			top: 0;
+			@include flexit;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			    -ms-flex-align: center;
+			            -ms-grid-row-align: center;
+			        align-items: center;
+			-webkit-box-pack: center;
+			    -ms-flex-pack: center;
+			        justify-content: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			    -ms-flex-direction: column;
+			        flex-direction: column;
+			text-align: center;
+
+			h1{
+				width: 100%;
+				font-size: 3em;
+				color: $white;
+				font-weight: bolder;
+				@include texthaze(darken($grey, 50%));
+				margin-top: 150px;
+			}
+		}
+
+		.subpage-masthead-button{
+			width: 70%;
+			margin-top: 25px;
+			/*border: 2px solid $white;*/
+			background-color: rgba($darkblue, .15);
+			padding: 15px;
+			color: $white;
+			font-weight: bold;
+			@include texthaze($black);
+			font-size: 1.75rem;
+			@include rounded;
+
+			span{
+				color: $orange;
+				background-color: $white;
+				@include rounded;
+				text-shadow: 0 0 0 transparent;
+			}
+		}
+
+#subpage-listings{
+	width: 100%;
+	padding: 100px 5% 0 5%;
+	background-color: $white;
+	background-image: url('../../images/stripe.png');
+}
+
+	.subpage-listing-cell{
+		width: 100%;
+		margin-bottom: 150px;
+		@include flexit;
+	}
+
+		.subpage-listing-cell-left{
+			width: 50%;
+			min-height: 275px;
+			position: relative;
+			float: left;
+			background-color: $grey;
+			cursor: pointer;
+			@include divshadow;
+			@include rounded;
+			background-size: cover;
+		}
+
+			.subpage-listing-price{
+				position: absolute;
+				left: 25px;
+				top: -10px;
+				padding: 20px 25px 20px 25px;
+				background-color: $orange;
+				color: $white;
+				@include texthaze(darken($orange, 25%));
+				font-size: 2rem;
+				@include rounded(10px);
+				text-align: center;
+
+				span{
+					font-size: 1rem;
+				}
+			}
+
+		.subpage-listing-cell-right{
+			width: 50%;
+			float: left;
+			padding-left: 5%;
+
+			span{
+				font-size: 2rem;
+				color: $darkblue;
+				display: inline-block;
+				margin-bottom: 25px;
+			}
+		}
+
+		.subpage-listing-attributes{
+			width: 100%;
+			padding-bottom: 15px;
+			margin-bottom: 25px;
+			border-bottom: 1px solid $darkblue;
+			@include flexit;
+			-webkit-box-pack: justify;
+			    -ms-flex-pack: justify;
+			        justify-content: space-between;
+			color: $darkblue;
+
+			i{margin-right: 10px;}
+
+			.a1{
+				color: $grey;
+				text-decoration: line-through;
+			}
+
+			p{
+				line-height: 1.5;
+			}
+		}
+
+		.subpage-listing-rent-button{
+			display: inline-block;
+			float: right;
+			margin-top: 25px;
+			border: 2px solid $blue;
+			color: $blue;
+			font-weight: bolder;
+			@include divshadow;
+			padding: 10px 25px 10px 5%;
+			cursor: pointer;
+
+			&:hover{
+				background-color: $blue;
+				color: $white;
+				@include fader;
+			}
+		}
+
+/*  ----------------------------
+
+		FOOTERS
+
+----------------------------  */
+
+#topfooter{
+	width: 100%;
+	background-color: $softblue;
+	padding: 100px 5%;
+	@include flexit;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	background-image: url('../../images/topfooter.png');
+	background-repeat: no-repeat;
+	background-position: right 25px;
+	background-size: 75% auto;
+}
+
+	.topfooter-cell{
+		width: 225px;
+		height: 225px;
+		position: relative;
+		background-color: $white;
+		border-radius: 50%;
+		text-align: center;
+		@include flexit;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		            -ms-grid-row-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+
+		::-moz-selection {
+		  background: $blue;
+		}
+
+		::selection {
+		  background: $blue;
+		}
+
+		::-moz-selection {
+		  background: $blue;
+		}
+	}
+
+	.topfooter-cell-snipe{
+		width: 75px;
+		height: 75px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		@include flexit;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		            -ms-grid-row-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		text-align: center;
+		background-image: url('../../images/topfooter-cell-snipe.png');
+		background-size: 100% 100%;
+
+		i{
+			font-size: 2rem;
+			color: $blue;
+		}
+	}
+
+	.topfooter-cell-text{
+		width: 100%;
+		position: absolute;
+		bottom: 15px;
+		right: 0;
+		text-align: center;
+		color: $blue;
+		font-family: 'Architects Daughter', sans-serif;
+		font-size: .85em;
+		@include texthaze($white);
+	}
+
+	.topfooter-bignumber{
+		font-size: 4rem;
+		color: $orange;
+
+		span{
+			font-size: 2rem;
+		}
+	}
+
+#middlefooter{
+	width: 100%;
+	background-color: $blue;
+	padding: 100px 5%;
+}
+
+	.middlefooter-speechbubble{
+		width: 100%;
+		background-color: $softblue;
+		@include rounded(50px);
+		background-image: url('../../images/quotes-open.png');
+		background-size: auto 50%;
+		background-repeat: no-repeat;
+		background-position: 25px 25px; 
+	}
+
+	.middlefooter-speechbubble-overlay{
+		width: 100%;
+		height: 100%;
+		position: relative;
+		padding: 50px 10%;
+		background-image: url('../../images/quotes-close.png');
+		background-size: auto 50%;
+		background-repeat: no-repeat;
+		background-position: bottom 25px right 25px;
+		color: darken($blue, 10%);
+		font-size: 2rem;
+		font-weight: bolder;
+	}
+
+	.middlefooter-speechbubble-tail{
+		position: absolute;
+		right: 50px;
+		bottom: -50px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 50px 50px 0 0;
+		border-color: $softblue transparent transparent transparent;
+	}
+
+	.middlefooter-speechbubble-name{
+		width: 100%;
+		height: 50px;
+		padding: 25px 150px 0 0;
+		text-align: right;
+		color: $white;
+		font-family: 'Architects Daughter', sans-serif;
+		font-family: 0.85em;
+	}
+
+footer{
+	width: 100%;
+	background-color: $darkblue;
+	padding: 50px 0;
+	color: #5C8094;
+	font-size: 1rem;
+}
+
+	#footer-cell-container{
+		width: 90%;
+		margin-left: 5%;
+	}
+
+	.footer-cell{
+		width: 32%;
+		float: left;
+
+		img{
+			width: auto;
+			height: 75px;
+		}
+
+		.copyright{
+			display: inline-block;
+			margin-bottom: 10px;
+		}
+	}
+
+	.footer-middle{
+		margin: 0 2%;
+
+		a{
+			color: darken($orange, 10%);
+			text-decoration: none;
+		}
+	}
+
+	.footer-buttons{
+		text-align: right;
+
+		i{
+			font-size: 2rem;
+			margin-right: 10px;
+		}
+
+		span{
+			background-color: $orange;
+			color: $white;
+			padding: 8px 15px;
+			@include rounded(10px);
+		}
+	}
+
+#grave{
+	width: 100%;
+	height: 25px;
+	background-color: $black; 
+}
